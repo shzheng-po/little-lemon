@@ -1,38 +1,150 @@
-.App {
-  text-align: center;
+* {
+  margin: 0px;
+  font-family: 'Markazi Text', sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  display: grid;
+  height: 150vh;
+  grid-template-rows: auto auto auto;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+a {
+  text-decoration: none;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+header {
+  display: flex;
+  justify-content: center;
+  gap: 28px;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 20px 70px 20px 70px;
+}
+
+header nav ul {
+  list-style-type: none;
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 28px;
+}
+
+header a {
+  color: #333333;
+  font-family: 'Markazi Text';
+  font-size: 18px;
+}
+
+main .booking {
+  background-color: #495E57;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 50px;
+}
+
+main .booking > div {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  padding: 20px;
+  flex-wrap: wrap;
+}
+
+main .booking > div > div{
+  background-color: #495E57;
+  display: flex;
+  flex-direction: column;
+  max-width: 500px;
+  padding-top:50px;
+  gap: 20px;
+}
+
+
+main .specials {
+  padding: 70px 20% 70px 20%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  gap: 20px;
+}
+
+main .specials > div {
+  display: flex;
+  justify-content: space-between;
+}
+
+main .specials .dish{
+  display: flex;
+  gap: 50px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+main .specials .card{
+  display: flex;
+  flex-shrink: 1;
+  max-width: 265px;
+  max-height: 439px;
+  justify-content: center;
+  flex-direction: column;
+}
+
+main .testimonials {
+  background-color: #495E57;
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 50px;
+  gap: 50px;
+
+}
+
+main .testimonials > div {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 50px;
+}
+
+main .landing-section {
+  display:flex;
+  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  padding: 50px;
 }
 
-.App-link {
-  color: #61dafb;
+main .landing-section > div {
+  display: flex;
+  flex-direction: column;
+  max-width: 500px;
+  padding-top: 50px;
+  gap: 20px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+footer {
+  background-color: #495E57;
+  display: flex;
+  justify-content: center;
+  padding: 20px 70px 20px 70px;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+footer ul {
+  list-style-type: none;
+  padding: 0px;
+}
+
+footer > .details{
+  display: flex;
+  align-items: top;
+  gap: 30px;
+  flex-wrap: wrap;
+  padding: 20px 70px 20px 70px;
+}
+
+footer div h3 {
+  padding-bottom: 10px ;
 }
