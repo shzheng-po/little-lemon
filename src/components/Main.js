@@ -1,17 +1,15 @@
-import restaurantFood from '../images/restaurantfood.jpg'
-import salad from '../images/greek_salad.jpg'
-import LandingSection from './LandingSection';
-import Reservation from './Reservation';
+import Chicago from './Chicago';
+import CallToAction from './CallToAction';
 import Testimonials from './Testimonials';
 import Specials from './Specials';
 
 function Main() {
     return (
     <main>
-        <Reservation />
+        <CallToAction />
         <Specials />
         <Testimonials />
-        <LandingSection />
+        <Chicago />
     </main>
     );
 }

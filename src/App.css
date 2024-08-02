@@ -3,10 +3,19 @@
   font-family: 'Markazi Text', sans-serif;
 }
 
-body {
-  display: grid;
-  height: 150vh;
-  grid-template-rows: auto auto auto;
+.App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  justify-content: space-between;
+  /* grid-template-rows: auto auto auto; */
+  /* align-items: center; */
+  /* padding: 0; */
+  background-color: #495E57;
+}
+
+.nav-item {
+  text-decoration: none;
 }
 
 a {
@@ -14,12 +23,14 @@ a {
 }
 
 header {
+  background-color: #EDEFEE;
   display: flex;
   justify-content: center;
   gap: 28px;
   flex-wrap: wrap;
   align-items: center;
   padding: 20px 70px 20px 70px;
+  border-bottom: 3px solid #495E57;
 }
 
 header nav ul {
@@ -30,10 +41,41 @@ header nav ul {
   gap: 28px;
 }
 
-header a {
+header .nav-item {
   color: #333333;
   font-family: 'Markazi Text';
   font-size: 18px;
+}
+
+.booking-page {
+  background-color: #495E57;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 50px;
+}
+
+.menu {
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 50px;
+}
+
+.order {
+  background-color: #495E57;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 50px;
+}
+
+.login {
+  background-color: #495E57;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 50px;
 }
 
 main .booking {
@@ -61,10 +103,21 @@ main .booking > div > div{
   gap: 20px;
 }
 
+main .booking a{
+  color: #333333;
+  justify-content: center;
+  padding: 10px 24px 10px 24px;
+  background-color: #F4CE14;
+  font-size: 18px;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
 
 main .specials {
   padding: 70px 20% 70px 20%;
   display: flex;
+  background-color: #EDEFEE;
   flex-direction: column;
   position: relative;
   gap: 20px;
@@ -97,25 +150,31 @@ main .testimonials {
   flex-direction: column;
   align-items: center;
   padding: 50px;
-  gap: 50px;
+  gap: 20px;
 
 }
 
 main .testimonials > div {
   display: flex;
-  align-items: center;
+  justify-content: center;
   flex-wrap: wrap;
-  gap: 50px;
+  gap: 100px;
 }
 
 main .landing-section {
-  display:flex;
-  align-items: center;
-  justify-content: center;
-  padding: 50px;
+  background-color: #EDEFEE;
 }
 
-main .landing-section > div {
+.landing-section {
+  display:flex;
+  /* align-items: center; */
+  justify-content: center;
+  padding: 50px;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.landing-section > div {
   display: flex;
   flex-direction: column;
   max-width: 500px;
@@ -124,7 +183,8 @@ main .landing-section > div {
 }
 
 footer {
-  background-color: #495E57;
+  background-color: #333333;
+  color: #EDEFEE;
   display: flex;
   justify-content: center;
   padding: 20px 70px 20px 70px;
@@ -132,9 +192,19 @@ footer {
   flex-wrap: wrap;
 }
 
+footer a {
+  text-decoration: none;
+  color: #EDEFEE;
+  font-family: 'Markazi Text';
+}
+
 footer ul {
   list-style-type: none;
   padding: 0px;
+}
+
+footer p {
+  font-family: 'Markazi Text';
 }
 
 footer > .details{
@@ -147,4 +217,7 @@ footer > .details{
 
 footer div h3 {
   padding-bottom: 10px ;
+  font-family: 'Markazi Text';
+  font-size: x-large;
 }
+

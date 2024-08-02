@@ -8,7 +8,7 @@ function Review( {name, rating, text, imageSrc}) {
     <div>
         <p>{rating}</p>
         <div>
-          <img src={imageSrc} style={{height: "46px"}} alt="person" />
+          <img src={imageSrc} style={{height: "100px"}} alt="person" />
           <h3>{name}</h3>
         </div>
         <p>{text}</p>

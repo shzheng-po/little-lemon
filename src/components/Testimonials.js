@@ -16,7 +16,7 @@ const reviews = [
     {
         rating: "5",
         name:"name",
-        review:'review',
+        text:'review',
         getImageSrc: () => require("../images/Mario_and_Adrian_A.jpg"),
     },
     {

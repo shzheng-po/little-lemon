@@ -1,4 +1,6 @@
-import image from '../images/restaurantfood.jpg'
+import React from "react";
+import image from '../images/restaurantfood.jpg';
+import {Link} from "react-router-dom";
 
 const name = 'Little Lemon';
 const city = 'Chicago';
@@ -6,7 +8,7 @@ const text = `We are a family owned Mediterranean restaurant,
                 focused on traditional recipes served with a modern twist.`;
 const booking = "#booking";
 
-function Reservation() {
+function CallToAction() {
     return (
     <article className='booking'>
         <div>
@@ -23,9 +25,9 @@ function Reservation() {
             </div>
             <img src={image} style={{maxHeight: "279px"}} alt="restaurnt" />
         </div>
-        <a href={booking}>Book a Table</a>
+        <Link to='/reservation' className="nav-item">Book a Table</Link>
     </article>
     )
 }
 
-export default Reservation;
+export default CallToAction;
