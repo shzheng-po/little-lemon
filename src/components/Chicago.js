@@ -6,7 +6,7 @@ const text = `We are a family owned Mediterranean restaurant,
                 focused on traditional recipes served with a modern twist.`;
 const booking = "#booking";
 
-function LandingSection() {
+function Chicago() {
     return (
     <article className='landing-section'>
         <div>
@@ -25,4 +25,4 @@ function LandingSection() {
     )
 }
 
-export default LandingSection;
+export default Chicago;

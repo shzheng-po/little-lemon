@@ -1,5 +1,6 @@
 import CardDish from './CardDish';
-import bruchetta from '../images/bruchetta.svg'
+import bruchetta from '../images/bruchetta.svg';
+import { Link } from "react-router-dom";
 
 const dishes = [
     {
@@ -29,7 +30,7 @@ function Specials() {
     return <article className='specials'>
         <div>
             <h3>Specials</h3>
-            <a href='/'>Online Menu</a>
+            <Link to="/menu">Online Menu</Link>
         </div>
         <div className='dish'>
             {dishes.map((dish) => (
