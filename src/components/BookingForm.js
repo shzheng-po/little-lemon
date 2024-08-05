@@ -1,27 +1,24 @@
 import {useState} from "react";
 // import { validateEmail } from "./utils";
 
-
-
-const handleSubmit = (e) => {
-    e.preventDefault();
-    alert("Reservation is made");
-    // clearForm();
-};
-
-// const clearForm = () => {
-//     setFirstName("");
-//     setLastName("");
-//     setEmail("");
-//     setPassword({ value: "", isTouched: "False" });
-//     setRole("role");
-// };
-
-function BookingForm() {
+// function BookingForm({availableTimes, bookingTime, handleSelectedTime}) {
+function BookingForm({availableTimes, handleSelectedTime}) {
     const [date, setDate] = useState("");
-    const [time, setTime] = useState("");
     const [guests, setGuests] = useState("");
-    const [occassion, setOccassion] = useState("occasion");
+    const [occassion, setOccasion] = useState("occasion");
+    const [bookingTime, setBookingTime] = useState("");
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        alert("Reservation is made");
+        clearForm();
+    };
+
+    const clearForm = () => {
+        setDate("");
+        setGuests("");
+        setOccasion("occasion");
+    };
 
     return (
         <form onSubmit={handleSubmit}>
@@ -39,15 +36,15 @@ function BookingForm() {
                 </div>
                 <div className="Field">
                     <label>
-                        Choose Date <sup>*</sup>
+                        Choose Time <sup>*</sup>
                     </label>
-                    <select value={time} onChange={e => setTime(e.target.value)}>
-                        <option value="17:00">17:00</option>
-                        <option value="18:00">18:00</option>
-                        <option value="19:00">19:00</option>
-                        <option value="20:00">20:00</option>
-                        <option value="21:00">21:00</option>
-                        <option value="22:00">22:00</option>
+                    <select value={bookingTime} onChange={e => {setBookingTime(e.target.value)}}>
+                        <option value="" disabled>Select time</option>
+                        {availableTimes.map((time) => (
+                            <option key={time} value={time}>
+                                {time}
+                            </option>
+                        ))}
                     </select>
                 </div>
                 <div className="Field">
@@ -59,7 +56,7 @@ function BookingForm() {
                         value={guests}
                         onChange={e => {
                             const value = parseInt(e.target.value);
-                            if (value >= 0 && value <= 10) {
+                            if (value >= 1 && value <= 10) {
                                 setGuests(value);
                             } else {
                                 setGuests("")
@@ -74,7 +71,7 @@ function BookingForm() {
                     <select
                         id="occasion"
                         value={occassion}
-                        onChange={e => setOccassion(e.target.value)}>
+                        onChange={e => setOccasion(e.target.value)}>
                         <option value="birthday">Birthday</option>
                         <option value="anniversary">Anniversary</option>
                     </select>

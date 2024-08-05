@@ -4,7 +4,6 @@ const name = 'Little Lemon';
 const city = 'Chicago';
 const text = `We are a family owned Mediterranean restaurant,
                 focused on traditional recipes served with a modern twist.`;
-const booking = "#booking";
 
 function Chicago() {
     return (
