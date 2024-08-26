@@ -1,38 +1,40 @@
 import BookingForm from "./BookingForm";
-import { useReducer } from "react";
+import React, { useReducer } from "react";
+/* global fetchAPI */
+
 
 const reducer = (state, action) => {
   if (action.type === 'SET_BOOKING_TIME') {
+    console.log(action.bookingTime);
     return {...state,
       availableTimes: updateTimes(state.availableTimes, action.bookingTime),
-      // bookingTime: action.bookingTime
     };
   };
   throw Error('Unknown Action.')
 };
 
-const initializeTimes = (initialState) => {
-  return initialState;
+
+const initializeTimes = () => {
+  const date = new Date();
+  const availableTimes = fetchAPI(date);
+  return {availableTimes: availableTimes};
 }
 
-const updateTimes = (availableTimes) => {
-  // const newAvailableTimes = availableTimes.filter(time => time !== selectedTime);
-  return availableTimes;
+const updateTimes = (availableTimes, selectedTime) => {
+  const newAvailableTimes = availableTimes.filter(time => time !== selectedTime);
+  return newAvailableTimes;
 }
 
 function BookingPage() {
 
-  const initialState = {
-    availableTimes: ['17:00', '18:00', '19:00', '20:00', '21:00', '22:00'],
-    // bookingTime:"",
-  };
+  const initialState = initializeTimes();
 
-  const [bookingState, dispatch] = useReducer(reducer, initialState, initializeTimes);
+  const [bookingState, dispatch] = useReducer(reducer, initialState);
 
   function handleSelectedTime(e){
     dispatch({
       type: 'SET_BOOKING_TIME',
-      // bookingTime: e.target.value,
+      bookingTime: e.target.value,
     });
   }
 
@@ -40,7 +42,6 @@ function BookingPage() {
       <div className="booking-page">
           <BookingForm
             availableTimes={bookingState.availableTimes}
-            // bookingTime={bookingState.bookingTime}
             handleSelectedTime={handleSelectedTime}
             />
       </div>

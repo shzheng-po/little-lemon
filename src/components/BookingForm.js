@@ -1,7 +1,6 @@
 import {useState} from "react";
 // import { validateEmail } from "./utils";
 
-// function BookingForm({availableTimes, bookingTime, handleSelectedTime}) {
 function BookingForm({availableTimes, handleSelectedTime}) {
     const [date, setDate] = useState("");
     const [guests, setGuests] = useState("");
@@ -11,13 +10,20 @@ function BookingForm({availableTimes, handleSelectedTime}) {
     const handleSubmit = (e) => {
         e.preventDefault();
         alert("Reservation is made");
+        handleSelectedTime({ target: { value: bookingTime } });
         clearForm();
+    };
+
+    const handleTimeChange = (e) => {
+        const selectedTime = e.target.value;
+        setBookingTime(selectedTime);
     };
 
     const clearForm = () => {
         setDate("");
         setGuests("");
         setOccasion("occasion");
+        setBookingTime("")
     };
 
     return (
@@ -38,7 +44,7 @@ function BookingForm({availableTimes, handleSelectedTime}) {
                     <label>
                         Choose Time <sup>*</sup>
                     </label>
-                    <select value={bookingTime} onChange={e => {setBookingTime(e.target.value)}}>
+                    <select value={bookingTime} onChange={handleTimeChange}>
                         <option value="" disabled>Select time</option>
                         {availableTimes.map((time) => (
                             <option key={time} value={time}>
