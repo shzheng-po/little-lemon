@@ -16,14 +16,14 @@ describe("Booking Forms", () => {
   });
 
   test("Testing InitializeTime return the expected value", () => {
-    const availableTimes = {availableTimes: ['17:00', '18:00', '19:00', '20:00', '21:00', '22:00']};
-    const result = initializeTimes(availableTimes);
-    expect(result).toEqual(availableTimes);
+    const result = initializeTimes();
+    expect(result.length).not.toBe(0);
   });
 
   test("updateTimes return the expected value", () => {
-    const availableTimes = {availableTimes: ['17:00', '18:00', '19:00', '20:00', '21:00', '22:00']};
-    const result = updateTimes(availableTimes);
-    expect(result).toEqual(availableTimes);
+    const availableTimes = initializeTimes().availableTimes;
+    const selectedTime = availableTimes[3];
+    const result = updateTimes(availableTimes, selectedTime);
+    expect(result.length).toBe(availableTimes.length - 1);
   });
 });

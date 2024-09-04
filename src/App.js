@@ -8,6 +8,7 @@ import AboutLittleLemon from './components/AboutLittleLemon';
 import MenuPage from './components/MenuPage';
 import OrderPage from './components/OrderPage';
 import Login from './components/LoginPage';
+import ConfirmBooking from './components/ConfirmBooking';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path='/menu' element={<MenuPage />} />
           <Route path='/order' element={<OrderPage />} />
           <Route path="/reservation" element={<BookingPage />} />
+          <Route path="/confirmation" element={<ConfirmBooking />} />
           <Route path="/login" element={<Login />} />
         </Routes>
       <Footer />

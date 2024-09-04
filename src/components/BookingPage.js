@@ -1,11 +1,34 @@
+import { useNavigate } from "react-router-dom";
 import BookingForm from "./BookingForm";
 import React, { useReducer } from "react";
-/* global fetchAPI */
+/* global fetchAPI, submitAPI */
 
+const seededRandom = function (seed) {
+  var m = 2**35 - 31;
+  var a = 185852;
+  var s = seed % m;
+  return function () {
+      return (s = s * a % m) / m;
+  };
+}
+
+const fetchAPI = function(date) {
+  let result = [];
+  let random = seededRandom(date.getDate());
+
+  for(let i = 17; i <= 23; i++) {
+      if(random() < 0.5) {
+          result.push(i + ':00');
+      }
+      if(random() < 0.5) {
+          result.push(i + ':30');
+      }
+  }
+  return result;
+};
 
 const reducer = (state, action) => {
   if (action.type === 'SET_BOOKING_TIME') {
-    console.log(action.bookingTime);
     return {...state,
       availableTimes: updateTimes(state.availableTimes, action.bookingTime),
     };
@@ -28,6 +51,7 @@ const updateTimes = (availableTimes, selectedTime) => {
 function BookingPage() {
 
   const initialState = initializeTimes();
+  const navigate = useNavigate();
 
   const [bookingState, dispatch] = useReducer(reducer, initialState);
 
@@ -38,11 +62,19 @@ function BookingPage() {
     });
   }
 
+  function SubmitForm(formData) {
+
+    if (submitAPI(formData)) {
+        navigate("/confirmation");
+      };
+  }
+
   return (
       <div className="booking-page">
           <BookingForm
             availableTimes={bookingState.availableTimes}
             handleSelectedTime={handleSelectedTime}
+            submitForm={SubmitForm}
             />
       </div>
   )

@@ -1,7 +1,7 @@
 import {useState} from "react";
 // import { validateEmail } from "./utils";
 
-function BookingForm({availableTimes, handleSelectedTime}) {
+function BookingForm({availableTimes, handleSelectedTime, submitForm}) {
     const [date, setDate] = useState("");
     const [guests, setGuests] = useState("");
     const [occassion, setOccasion] = useState("occasion");
@@ -9,9 +9,9 @@ function BookingForm({availableTimes, handleSelectedTime}) {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        alert("Reservation is made");
         handleSelectedTime({ target: { value: bookingTime } });
         clearForm();
+        submitForm(e);
     };
 
     const handleTimeChange = (e) => {
