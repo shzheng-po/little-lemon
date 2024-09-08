@@ -27,6 +27,10 @@ const fetchAPI = function(date) {
   return result;
 };
 
+const submitAPI = function(formData) {
+  return true;
+};
+
 const reducer = (state, action) => {
   if (action.type === 'SET_BOOKING_TIME') {
     return {...state,
